@@ -13,6 +13,7 @@ struct b_stack *bs_init(){
 	struct b_stack * bs = malloc(sizeof(struct b_stack));
 	bs->next = NULL;
 	bs->count = 0;
+	return bs;
 }
 
 void bs_push(int val, Top *t){
@@ -39,7 +40,7 @@ int bs_pop(Top *t){
 
 void free_stack(Top t){
 	while(t->count != 0){
-		s_pop(&t);
+		bs_pop(&t);
 	}
 	free(t);
 }
